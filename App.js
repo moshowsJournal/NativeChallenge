@@ -1,5 +1,5 @@
 import React from 'react';
-import { NativeModules, Button,StyleSheet,View } from 'react-native';
+import { NativeModules, Button,StyleSheet,View, SafeAreaView, Platform } from 'react-native';
 const { CustomNativeModule } = NativeModules;
 
 const NewModuleButton = () => {
@@ -18,13 +18,15 @@ const NewModuleButton = () => {
   };
 
   return (
-    <View style={styles.container}>
-          <Button
-            title="Click to invoke your native module!"
-            color="#841584"
-            onPress={onPress}
-          />
-    </View>
+    <SafeAreaView style={styles.mainContainer}>
+      <View style={styles.container}>
+        <Button
+          title="Click to invoke your native module!"
+          color="#841584"
+          onPress={onPress}
+        />
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -34,6 +36,9 @@ const styles = StyleSheet.create({
     alignItems : "center",
     justifyContent : "center",
     backgroundColor : 'white'
+  },
+  mainContainer : {
+    flex : 1
   }
 })
 
